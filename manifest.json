@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Bookmark to NotebookLM",
+  "version": "1.0",
+  "description": "Save bookmarks with tags and submit to NotebookLM for podcast generation",
+  "permissions": [
+    "bookmarks",
+    "storage",
+    "tabs",
+    "activeTab",
+    "scripting",
+    "alarms"
+  ],
+  "host_permissions": [
+    "https://notebooklm.google.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://notebooklm.google.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
